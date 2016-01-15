@@ -9,7 +9,9 @@ using System.Data.Entity.Infrastructure;
 
 namespace CodedHomes.Data.Configuration
 {
-    public class CustomDatabaseInitializer : CreateDatabaseIfNotExists<DataContext>
+    public class CustomDatabaseInitializer : 
+        DropCreateDatabaseIfModelChanges<DataContext>
+        //CreateDatabaseIfNotExists<DataContext>
     {
         /// <summary>
         /// seed the database!
