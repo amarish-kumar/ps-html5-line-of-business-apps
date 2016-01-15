@@ -1,48 +1,45 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+@if (ViewBag.IncludeManifest != null)
+{
+<text><html lang="en" manifest="/homes/manifest"></text>
+} else
+{
+<text><html lang="en"></text>
+}
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title :: CodedHomes</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        @RenderSection("styles", required: false)
     </head>
-    <body>
+        <body class="container-fluid">
         <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
+            <div class="row-fluid">
+                <div class="span6"><a href="/"><img alt="CodedHomes" title="CodedHomes" src="/img/coded-homes-logo.png" /></a></div>
+                <div class="span6">
+                    <div class="pull-right online standout">
+                        @if (ViewBag.IncludeManifest != null)
+                        {
+                            @Html.ActionLink("Manage Account", "manage", "account")
+                        } else
+                        {
+                            @Html.Partial("_LoginPartial")
+                        }
+                    </div>
                 </div>
             </div>
         </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
+        <article>
+            @RenderBody()
+        </article>
         <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
+            <small>&copy; @DateTime.Now.Year CodedHomes</small>
         </footer>
-
-        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("breakout", required: false)
+        @Scripts.Render("~/bundles/site")
         @RenderSection("scripts", required: false)
     </body>
 </html>

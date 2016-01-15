@@ -5,9 +5,26 @@ namespace CodedHomes.Web
 {
     public class BundleConfig
     {
-        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
+        /// <summary>
+        /// build files into a single
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/site").Include(
+                        "~/Scripts/lib/jquery-{version}.js",
+                        "~/Scripts/lib/bootstrap.js",
+                        "~/Scripts/lib/knockout-{version}.js",
+                        "~/Scripts/lib/underscore.js",
+                        "~/Scripts/lib/H5F.js"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/bootstrap-responsive.css",
+                "~/Content/site.css"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/lib/jquery-{version}.js"));
 
@@ -23,7 +40,7 @@ namespace CodedHomes.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/lib/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -38,6 +55,9 @@ namespace CodedHomes.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            // Code removed for clarity.
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }
