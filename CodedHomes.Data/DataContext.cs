@@ -29,9 +29,16 @@ namespace CodedHomes.Data
             }
         }
 
+        /// <summary>
+        /// set the initializer
+        /// </summary>
+        static DataContext()
+        {
+            Database.SetInitializer(new CustomDatabaseInitializer());
+        }
+
         public DataContext():base(nameOrConnectionString: DataContext.ConnectionStringName)
         {
-
         }
 
         /// <summary>
