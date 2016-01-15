@@ -51,5 +51,35 @@ namespace CodedHomes.Data
             modelBuilder.Configurations.Add(new UserConfiguration());
             //base.OnModelCreating(modelBuilder);
         }
+
+        /// <summary>
+        /// manipulate objects before save (julie lerman)
+        /// </summary>
+        private void ApplyRules()
+        {
+            var objects = this.ChangeTracker.Entries()
+                        .Where(
+                            e => e.Entity is IAuditInfo &&
+                            (e.State == EntityState.Added) ||
+                            (e.State == EntityState.Modified)
+                         );
+            foreach (var entry in objects)
+            {
+                IAuditInfo e = (IAuditInfo)entry.Entity;
+
+                if (entry.State == EntityState.Added)
+                {
+                    e.CreatedOn = DateTime.Now;
+                }
+
+                e.ModifiedOn = DateTime.Now;
+            }
+        }
+
+        public override int SaveChanges()
+        {
+            this.ApplyRules();
+            return base.SaveChanges();
+        }
     }
 }
