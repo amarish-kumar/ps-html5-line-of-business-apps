@@ -8,6 +8,8 @@ using System.Data.Entity;
 using CodedHomes.Models;
 using System.Configuration;
 
+using CodedHomes.Data.Configuration;
+
 namespace CodedHomes.Data
 {
     public class DataContext : DbContext
@@ -30,6 +32,17 @@ namespace CodedHomes.Data
         public DataContext():base(nameOrConnectionString: DataContext.ConnectionStringName)
         {
 
+        }
+
+        /// <summary>
+        /// configure the database
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new HomeConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            //base.OnModelCreating(modelBuilder);
         }
     }
 }
