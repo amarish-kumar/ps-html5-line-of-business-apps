@@ -38,7 +38,12 @@ namespace CodedHomes.Web.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection(
+                        Config.ConnectionStringName, 
+                        Config.UsersTableName, 
+                        Config.UsersPrimaryKeyColumnName, 
+                        Config.UsersUserNameColumnName, 
+                        autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
