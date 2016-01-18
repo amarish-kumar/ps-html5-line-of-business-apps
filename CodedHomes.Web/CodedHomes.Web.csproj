@@ -248,6 +248,8 @@
     <Content Include="img\homes\no-image-large.png" />
     <Content Include="img\homes\no-image.png" />
     <Content Include="img\property.jpg" />
+    <Content Include="Scripts\lib\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\lib\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap.min.js" />
     <Content Include="Scripts\lib\H5F.js" />

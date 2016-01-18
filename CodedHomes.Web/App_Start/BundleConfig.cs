@@ -13,6 +13,7 @@ namespace CodedHomes.Web
         {
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
                         "~/Scripts/lib/jquery-{version}.js",
+                        "~/Scripts/lib/jquery-migrate-{version}.js",
                         "~/Scripts/lib/bootstrap.js",
                         "~/Scripts/lib/knockout-{version}.js",
                         "~/Scripts/lib/underscore.js",
