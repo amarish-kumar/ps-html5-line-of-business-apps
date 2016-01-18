@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedHomes.ConsoleApp", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedHomes.Web", "CodedHomes.Web\CodedHomes.Web.csproj", "{AFE6EEE6-A992-4D42-BA84-21D7E7A70240}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedHomes.Admin", "CodedHomes.Admin\CodedHomes.Admin.csproj", "{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,16 @@ Global
 		{AFE6EEE6-A992-4D42-BA84-21D7E7A70240}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AFE6EEE6-A992-4D42-BA84-21D7E7A70240}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AFE6EEE6-A992-4D42-BA84-21D7E7A70240}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5DF1B38A-C995-4B2E-85E1-8C4F7E7B0BC3}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
