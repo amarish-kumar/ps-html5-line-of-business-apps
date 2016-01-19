@@ -23,6 +23,9 @@ namespace CodedHomes.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            // add custom configs
+            CustomGlobalConfig.Customize(GlobalConfiguration.Configuration);
         }
     }
 }
