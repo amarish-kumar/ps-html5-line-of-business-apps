@@ -78,5 +78,32 @@ namespace CodedHomes.Web.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        [HttpPost]
+        [System.Web.Http.Authorize(Roles = "admin, manager, user")]
+        public HttpResponseMessage Post(Home home)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    this._unit.Homes.Add(home);
+                    this._unit.SaveChanges();
+
+                    HttpResponseMessage result = Request.CreateResponse(HttpStatusCode.Created, home);
+                    result.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = home.Id }));
+
+                    return result;
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }
