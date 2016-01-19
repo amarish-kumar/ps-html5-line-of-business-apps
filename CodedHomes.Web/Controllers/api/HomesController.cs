@@ -38,6 +38,7 @@ namespace CodedHomes.Web.Controllers
             return home;
         }
 
+        [HttpPut]
         [System.Web.Http.Authorize(Roles = "admin, manager, user")]
         public HttpResponseMessage Put(int id, Home home)
         {
@@ -99,6 +100,35 @@ namespace CodedHomes.Web.Controllers
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpDelete]
+        [System.Web.Http.Authorize(Roles = "admin, manager")]
+        public HttpResponseMessage Delete(int id)
+        {
+            Home home = this._unit.Homes.GetById(id);
+
+            if (home == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            this._unit.Homes.Delete(home);
+
+            try
+            {
+                this._unit.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.OK, home);
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
             catch (Exception ex)
             {
