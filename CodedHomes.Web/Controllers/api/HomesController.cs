@@ -24,7 +24,8 @@ namespace CodedHomes.Web.Controllers
         }
 
         [HttpGet]
-        [System.Web.Http.Authorize(Roles = "admin, manager, user")]
+        [AllowAnonymous]
+        //[System.Web.Http.Authorize(Roles = "admin, manager, user")]
         public Home Get(int id)
         {
             Home home = this._unit.Homes.GetById(id);
@@ -39,7 +40,8 @@ namespace CodedHomes.Web.Controllers
         }
 
         [HttpPut]
-        [System.Web.Http.Authorize(Roles = "admin, manager, user")]
+        [AllowAnonymous]
+        //[System.Web.Http.Authorize(Roles = "admin, manager, user")]
         public HttpResponseMessage Put(int id, Home home)
         {
             // some validation error
@@ -81,7 +83,8 @@ namespace CodedHomes.Web.Controllers
         }
 
         [HttpPost]
-        [System.Web.Http.Authorize(Roles = "admin, manager, user")]
+        [AllowAnonymous]
+        //[System.Web.Http.Authorize(Roles = "admin, manager, user")]
         public HttpResponseMessage Post(Home home)
         {
             try
@@ -108,7 +111,8 @@ namespace CodedHomes.Web.Controllers
         }
 
         [HttpDelete]
-        [System.Web.Http.Authorize(Roles = "admin, manager")]
+        [AllowAnonymous]
+        //[System.Web.Http.Authorize(Roles = "admin, manager")]
         public HttpResponseMessage Delete(int id)
         {
             Home home = this._unit.Homes.GetById(id);
