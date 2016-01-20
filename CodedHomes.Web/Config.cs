@@ -60,5 +60,26 @@ namespace CodedHomes.Web
                 return "Username";
             }
         }
+
+        public static string ImagesFolderPath
+        {
+            get
+            {
+                if (ConfigurationManager.AppSettings["ImagesFolderPath"] != null)
+                {
+                    return ConfigurationManager.AppSettings["ImagesFolderPath"].ToString();
+                }
+
+                return "~/img/homes";
+            }
+        }
+
+        public static string ImagesUrlPrefix
+        {
+            get
+            {
+                return Config.ImagesFolderPath.Replace("~", "");
+            }
+        }
     }
 }
