@@ -12,7 +12,7 @@ using System.Data.Entity.Infrastructure;
 namespace CodedHomes.Web.Controllers
 {
     [Authorize]
-    public class HomesController : ApiController
+    public class HomesAPIController : ApiController
     {
         private ApplicationUnit _unit = new ApplicationUnit();
 

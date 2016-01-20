@@ -13,7 +13,7 @@ namespace CodedHomes.Web
                 name: "API",
                 routeTemplate: "api/homes/{id}",
                 defaults: new { 
-                    controller = "Homes",
+                    controller = "HomesAPI",
                     id = RouteParameter.Optional
                 }
             );
