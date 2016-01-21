@@ -41,7 +41,7 @@ var homesDataService = (function () {
     };
 
     // run under the context of the ds context
-    _.bindAdll(ds, 'del', 'save');
+    _.bindAll(ds, 'del', 'save');
 
     // make it public and return the promise
     return {
