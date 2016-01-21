@@ -19,6 +19,66 @@
 			}
 	</style>
 }
+@section scripts {
+<script>
+	$(function() {
+
+		var ViewModel = function() {
+			this.homes = ko.observableArray(@Html.Raw(Model.HomesJSON));
+            @if (Model.CanDelete)
+            {
+                <text>
+			        this.currentHome = {};
+
+			        this.errorMessage = ko.observable();
+
+			        this.showError = function(error) {
+				        $('#error-container').fadeIn();
+			        };
+
+			        this.requestDelConfirm = function(home) {
+				        vm.currentHome = home;
+				        $('#del-confirm').modal();
+			        };
+
+			        this.del = function() {
+				        var home = ko.toJS(vm.currentHome);
+
+				        homesDataService.del(home).done(function(response) {
+					        vm.homes.remove(function(item) {
+						        return item.id === home.id;
+					        });
+				        }).fail(function(error) {
+					        vm.showError(error);
+				        }).always(function() {
+					        $('#del-confirm').modal('hide');
+				        });
+			        };
+                </text>
+            }
+		};
+
+		var vm = new ViewModel();
+
+		_.each(vm.homes(), function(home) {
+			home.priceFormatted = ko.computed(function() {
+				return _.numberWithCommas(home.price);
+			});
+
+			home.imageUrl = ko.computed(function() {
+				var
+					imgName = home.imageName,
+					fileName = (imgName == null) ? 'no-image.png' : imgName,
+					url = '@Model.ImageUrlPrefix' + fileName;
+
+				return url;
+			});
+		});
+
+		ko.applyBindings(vm);// take the viewmodel and apply bindings
+	});
+</script>    
+}
 
 <h2>Home</h2>
 
