@@ -258,6 +258,7 @@
     <Content Include="img\homes\no-image.png" />
     <Content Include="img\property.jpg" />
     <Content Include="Scripts\app\homesDataService.js" />
+    <Content Include="Scripts\app\validationUtility.js" />
     <Content Include="Scripts\app\_mixins.js" />
     <Content Include="Scripts\lib\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\lib\jquery-migrate-1.2.1.min.js" />

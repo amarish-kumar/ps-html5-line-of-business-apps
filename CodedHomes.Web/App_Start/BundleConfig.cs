@@ -19,7 +19,8 @@ namespace CodedHomes.Web
                         "~/Scripts/lib/underscore.js",
                         "~/Scripts/lib/H5F.js",
                         "~/Scripts/app/_mixins.js",
-                        "~/Scripts/app/homesDataService.js"
+                        "~/Scripts/app/homesDataService.js",
+                        "~/Scripts/app/validationUtility.js"
             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
