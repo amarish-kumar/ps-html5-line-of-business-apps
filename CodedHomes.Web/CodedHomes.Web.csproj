@@ -346,6 +346,7 @@
     <None Include="Scripts\lib\jquery-1.9.0.min.map" />
     <None Include="Scripts\lib\underscore.min.map" />
     <Content Include="Views\Homes\Index.cshtml" />
+    <Content Include="Views\Homes\Homes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
