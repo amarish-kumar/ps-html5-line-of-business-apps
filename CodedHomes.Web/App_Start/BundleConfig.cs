@@ -20,6 +20,7 @@ namespace CodedHomes.Web
                         "~/Scripts/lib/H5F.js",
                         "~/Scripts/app/_mixins.js",
                         "~/Scripts/app/homesDataService.js",
+                        "~/Scripts/app/offlineUtility.js",
                         "~/Scripts/app/validationUtility.js"
             ));
 
