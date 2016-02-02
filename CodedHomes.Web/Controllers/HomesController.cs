@@ -99,6 +99,29 @@ namespace CodedHomes.Web.Controllers
             return result;
         }
 
+        [AllowAnonymous]
+        public ActionResult Offline()
+        {
+            return View();
+        }
+
+        public ActionResult ReviewOffline()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Manifest()
+        {
+            this.Response.ContentType = "text/cache-manifest";
+            this.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            string viewName = "Manifest";
+#if DEBUG
+            viewName = "Manifest-Debug";
+#endif
+            return View(viewName);
+        }
+
         protected override void Dispose(bool disposing)
         {
             this._unit.Dispose();
