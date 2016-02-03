@@ -14,6 +14,25 @@
 {
     <script>
         $(function () { 
+            //*
+            var
+                showOfflineLayout = function() {
+                    $('#offline-modal').modal();
+                    $('#offline-alert-container').show();
+                },
+                
+                showOnlineLayout = function() {
+                    var e = $('#offline-alert-container');
+                    if (e.is(':visible')) {
+                        e.fadeOut('fast');
+                    }
+                };
+
+            var offlineUtility =
+                new OfflineUtility(showOnlineLayout, showOfflineLayout);
+            // */
+
+            
             var
                 homeDataForm = $("#home-data-form")[0],
                 progressBar = $('#progress-bar');
@@ -235,6 +254,14 @@
     </script>
 }
 
+<!-- Offline Support -->
+<div class="alert alert-info" 
+    data-bind="visible: hasOfflineHomesToSaveToServer">
+    @Html.ActionLink("Please save to the server the homes you added while offline.", 
+        "reviewoffline", "homes")
+</div>
+<!-- Offline Support -->
+
 <div class="row-fluid">
     <div class="span5 mobile-push-down">
         <div class="row-fluid">
@@ -452,3 +479,37 @@
             data-bind="click: del">Delete Home</button>
     </div>
 </div>
+
+<!-- Offline Support -->
+<div id="offline-modal" class="modal hide fade" tabindex="-1" role="dialog" 
+    aria-labelledby="offline-modal-label" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" 
+            data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="del-confirm-label">You Are Offline</h3>
+    </div>
+    <div class="modal-body">
+        <p>
+            Your connection to the internet has been interrupted for some reason. 
+            Any information you try to save here will not be saved into 
+            the system.</p>
+        <p>If you are adding a new home you can continue by using the 
+            offline page.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" 
+            aria-hidden="true">Close</button>
+        <button class="btn btn-primary" 
+            data-bind="click: goToOfflinePage">Go to Offline Page</button>
+    </div>
+</div>
+
+@section breakout {
+<div id="offline-alert-container" 
+    class="alert alert-error alert-small none sticky-message">
+    This page won't work correctly until you have access to a 
+    reliable internet connection. <a href="/homes/offline">You can use the 
+    offline page to continue adding new homes.</a>
+</div>    
+}
+<!-- Offline Support -->
