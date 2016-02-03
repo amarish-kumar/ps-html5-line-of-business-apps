@@ -353,6 +353,7 @@
     <Content Include="Views\Homes\Manifest-Debug.cshtml" />
     <Content Include="Views\Homes\Offline.cshtml" />
     <Content Include="Views\Homes\ReviewOffline.cshtml" />
+    <Content Include="Views\Shared\OfflineLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
