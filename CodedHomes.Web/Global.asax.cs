@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using Elmah;
+
 namespace CodedHomes.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -26,6 +28,14 @@ namespace CodedHomes.Web
 
             // add custom configs
             CustomGlobalConfig.Customize(GlobalConfiguration.Configuration);
+        }
+
+        private void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs e)
+        {
+            if (e.Exception is System.Threading.ThreadAbortException)
+            {
+                e.Dismiss();
+            }
         }
     }
 }
